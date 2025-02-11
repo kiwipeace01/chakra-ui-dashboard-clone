@@ -1,25 +1,51 @@
 import { Flex, Box } from '@chakra-ui/react';
+import InfoCard from "@/components/Dashboard/InfoCard/InfoCard";
+import ReadMoreCard from "@/components/Dashboard/ReadMoreCard/ReadMoreCard";
+import {infoCardsData} from "@/variables/statistics";
+import {readMoreCardsData} from "@/variables/blogs";
+import {projectsData} from "@/variables/projects";
+import {ordersData} from "@/variables/orders";
+import OrdersOverviewCard from "@/components/Dashboard/OrdersOverviewCard/OrdersOverviewCard";
+import ProjectsTableCard from "@/components/Dashboard/ProjectsTableCard/ProjectsTableCard";
 
 export default function Dashboard() {
     return (
-        <Flex direction="column" h="100vh" p={4} gap={6}>
+        <Flex direction="column" p={4} gap={6} bg={"gray.100"}>
             <Flex gap={6} flex="1">
-                <Box flex="1" bg="blue.500">Item 1</Box>
-                <Box flex="1" bg="green.500">Item 2</Box>
-                <Box flex="1" bg="red.500">Item 3</Box>
-                <Box flex="1" bg="yellow.500">Item 4</Box>
+                {infoCardsData.map((card, index) => (
+                    <Box key={index} flex="1" borderRadius="20px">
+                        <InfoCard
+                            title={card.title}
+                            value={card.value}
+                            prefix={card.prefix}
+                            percentageChange={card.percentageChange}
+                            IconComponent={card.IconComponent}
+                        />
+                    </Box>
+                ))}
+            </Flex>
+            <Flex gap={6} flex="2">
+                {readMoreCardsData.map((card, index) => (
+                    <Box key={index} flex={index === 0 ? "3" : "2"}>
+                        <ReadMoreCard
+                            imageLocation={card.imageLocation}
+                            header={card.header}
+                            title={card.title}
+                            description={card.description}
+                            pageUrl={card.pageUrl}
+                            imageUrl={card.imageUrl}
+                            fontType={card.fontType}
+                        />
+                    </Box>
+                ))}
             </Flex>
             <Flex gap={6} flex="1">
-                <Box flex="2" bg="purple.500">Item 5</Box>
-                <Box flex="1" bg="orange.500">Item 6</Box>
-            </Flex>
-            <Flex gap={6} flex="1">
-                <Box flex="1" bg="teal.500">Item 7</Box>
-                <Box flex="2" bg="pink.500">Item 8</Box>
-            </Flex>
-            <Flex gap={6} flex="1">
-                <Box flex="2" bg="cyan.500">Item 9</Box>
-                <Box flex="1" bg="gray.500">Item 10</Box>
+                <Box flex="2" borderRadius="20px">
+                    <ProjectsTableCard projects={projectsData}/>
+                </Box>
+                <Box flex="1" borderRadius="20px">
+                    <OrdersOverviewCard orders={ordersData} />
+                </Box>
             </Flex>
         </Flex>
     );
