@@ -1,22 +1,23 @@
 This is a [Next.js](https://nextjs.org) project that uses Chakra UI
 
-## Getting Started
-
-Create a virtual environment using conda with nodejs installed and activate it
+Create a new conda environment using conda with nodejs installed. Activate this environment
 
 ```bash
 conda create -yn chakra-ui-dashboard nodejs
 conda activate chakra-ui-dashboard
 ```
 
-To install the relevant packages using yarn, run the following command:
+Install yarn to install and manage the dependencies required to run this application.
+```
+npm install yarn
+```
 
+Install project dependencies using yarn.
 ```bash
 yarn install
 ```
 
-To run the development server:
-
+From the top-level `chakra-ui-dashboard-clone directory`, run the following commands:
 ```bash
 yarn run dev
 ```
