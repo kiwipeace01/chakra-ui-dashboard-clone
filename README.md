@@ -17,7 +17,7 @@ Install project dependencies using yarn.
 yarn install
 ```
 
-From the top-level `chakra-ui-dashboard-clone directory`, run the following commands:
+From the top-level `chakra-ui-dashboard-clone` directory, run the following commands:
 ```bash
 yarn run dev
 ```
